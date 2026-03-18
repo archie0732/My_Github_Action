@@ -2,9 +2,8 @@ name: Daily Bun Script
 
 on:
   schedule:
-    # 每天國際標準時間 (UTC) 00:00 執行 (台灣時間早上 8:00)
     - cron: '0 0 * * *'
-  workflow_dispatch: # 允許手動點擊按鈕執行，方便測試
+  workflow_dispatch: 
 
 jobs:
   run-script:
@@ -22,11 +21,11 @@ jobs:
         run: bun install
 
       - name: Run Script
-        run: bun run src/index.ts # 換成你的執行指令
+        run: bun run src/index.ts 
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          PATH: ${{ secrets.LOGIN_PATH }}        
+          LOGIN_PATH: ${{ secrets.LOGIN_PATH }}        
 
       - name: Send Discord Webhook on Success
         if: success()
@@ -41,5 +40,5 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"❌ 每日任務執行失敗，請檢查 GitHub Actions 紀錄。\"}" \
+               -d "{\"content\": \"❌ 每日任務執行失敗 (專題 Supabase Login)\"}" \
                ${{ secrets.DISCORD_WEBHOOK_URL }}
