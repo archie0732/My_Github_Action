@@ -22,14 +22,18 @@ jobs:
         run: bun install
 
       - name: Run Script
-        run: bun run index.ts # 換成你的執行指令
+        run: bun run src/index.ts # 換成你的執行指令
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          PATH: ${{ secrets.PATH }}        
 
       - name: Send Discord Webhook on Success
         if: success()
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"✅ 每日任務已成功執行！ (來自 GitHub Actions)\"}" \
+               -d "{\"content\": \"✅ 每日任務已成功執行！ (專題 Supabase Login)\"}" \
                ${{ secrets.DISCORD_WEBHOOK_URL }}
 
       - name: Send Discord Webhook on Failure
