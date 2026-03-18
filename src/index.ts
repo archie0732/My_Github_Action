@@ -1,7 +1,7 @@
 const autoLogin = async () => {
   const email = Bun.env.EMAIL;
   const password = Bun.env.PASSWORD;
-  const path = Bun.env.PATH;
+  const path = Bun.env.LOGIN_PATH;
 
   if (!email || !password || !path) {
     throw new Error("Lost .env file");
