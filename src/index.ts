@@ -1,12 +1,11 @@
-const profile = {
-  "email": "ckck@gmail.com",
-  "password": "a123456"
-};
-
-
 const autoLogin = async () => {
-  const { email, password } = profile;
+  const email = Bun.env.EMAIL;
+  const password = Bun.env.PASSWORD;
+  const path = Bun.env.LOGIN_PATH;
 
+  if (!email || !password || !path) {
+    throw new Error("Lost .env file");
+  }
 
   const response = await fetch(path, {
     method: "POST",
@@ -16,13 +15,11 @@ const autoLogin = async () => {
     body: JSON.stringify({ email, password }),
   });
 
-
   if (!response.ok) {
-    throw new Error();
+    throw new Error(`login fail: ${response.status}`);
   }
 
+  console.log("Login successful!");
+};
 
-
-}
-
-await autoLogin()
+autoLogin();
