@@ -2,4 +2,4 @@
 auto complete some shit by github action
 
 
-<img src="/img/280.png" />
+<img src="/img/280.webp" />
