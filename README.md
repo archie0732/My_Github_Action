@@ -1,5 +1,6 @@
 # My_Github_Action
-auto complete some shit by github action
+
+supabase is bullshit so i make is to avoid supabase to block my databaes 
 
 
 <img src="/img/280.webp" />
