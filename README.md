@@ -1,6 +1,7 @@
 # My_Github_Action
 
-supabase is bullshit so i make is to avoid supabase to block my databaes 
+To avoid SupaseBase **freeze** my project database
+- I don't want to pay for this shit !!
 
 
 <img src="/img/280.webp" />
