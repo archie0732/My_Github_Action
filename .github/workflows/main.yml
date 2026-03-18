@@ -26,7 +26,7 @@ jobs:
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          PATH: ${{ secrets.PATH }}        
+          PATH: ${{ secrets.LOGIN_PATH }}        
 
       - name: Send Discord Webhook on Success
         if: success()
