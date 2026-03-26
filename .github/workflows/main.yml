@@ -34,7 +34,7 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"✅ 每日任務已成功執行！ (專題 Supabase Login)\"}" \
+               -d "{\"content\": \"✅ 【Login Supabase】Complete, Status: Success!\"}" \
                ${{ secrets.DISCORD_WEBHOOK_URL }}
 
       - name: Send Discord Webhook on Failure
@@ -42,5 +42,5 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"❌ 每日任務執行失敗 (專題 Supabase Login)\"}" \
+               -d "{\"content\": \"❌ 【Login Supabase】Fail, Please check github action status\"}" \
                ${{ secrets.DISCORD_WEBHOOK_URL }}
